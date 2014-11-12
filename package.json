@@ -1,0 +1,20 @@
+{
+    "name" : "langid", 
+    "description" : "An off-the-shelf client-side language identification module for JavaScript.",
+    "keywords" : ["language identification", "language detection"],
+    "homepage" : "https://github.com/motiz88/langid.js",
+    "author" : {
+        "name" : "saffsd"
+    },
+    "contributors" : [{
+        "name" : "Moti Zilberman",
+		"email" : "motiz88@gmail.com"
+    }],
+    "main" : "langid", 
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/motiz88/langid.js.git"
+    },
+    "bugs" : "http://github.com/motiz88/langid.js/issues",
+    "license" : "For license conditions, see the LICENSE file in the same repository."
+}
