@@ -26,8 +26,7 @@
 	var _nb_ptc = langid_model._nb_ptc;
 	var _nb_classes = langid_model._nb_classes;
 
-	var langid = (function() {
-	  var my = {};
+	(function() {
 
 	  function base64ToArray(encStr, arraytype) {
 		var decStr = atob(encStr)
@@ -66,7 +65,7 @@
 
 	  console.log("unpacked a langid model: " + num_langs + " langs, " + num_features + " feats, " + num_states + " states.");
 
-	  my.textToFv = function(str){
+	  exports.textToFv = function(str){
 		// convert raw input text to a vector of transitions.
 
 		// The model in langid.js operates at a byte level, and most
@@ -96,7 +95,7 @@
 		return fv;
 	  }
 
-	  my.fvToLogprob = function(fv){
+	  exports.fvToLogprob = function(fv){
 		// rank languages based on an input fv
 		var logprob = new Float64Array(nb_pc);
 		for (var i = 0; i < num_features; i++){
@@ -109,7 +108,7 @@
 		return logprob;
 	  }
 
-	  my.logprobToPred = function(logprob){
+	  exports.logprobToPred = function(logprob){
 		var _i = 0;
 
 		for (var i=1;i<num_langs;i++){
@@ -119,7 +118,7 @@
 		return nb_classes[_i];
 	  }
 
-	  my.logprobToRank= function(logprob){
+	  exports.logprobToRank= function(logprob){
 		var preds = [];
 		for (var i=0;i<num_langs;i++) preds.push({"lang":nb_classes[i], "logprob":logprob[i]});
 		preds.sort(function(a,b){return b["logprob"]-a["logprob"];});
@@ -127,24 +126,18 @@
 		return preds;
 	  }
 
-	  my.identify = function(str){
-		var fv = my.textToFv(str);
-		var lp = my.fvToLogprob(fv);
-		var pred = my.logprobToPred(lp);
+	  exports.identify = function(str){
+		var fv = exports.textToFv(str);
+		var lp = exports.fvToLogprob(fv);
+		var pred = exports.logprobToPred(lp);
 		return pred;
 	  }
 
-	  my.rank = function(str){
-		var fv = my.textToFv(str);
-		var lp = my.fvToLogprob(fv);
-		var rank = my.logprobToRank(lp);
+	  exports.rank = function(str){
+		var fv = exports.textToFv(str);
+		var lp = exports.fvToLogprob(fv);
+		var rank = exports.logprobToRank(lp);
 		return rank;
 	  }
-
-	  return my;
-	  
 	})();
-
-	exports.langid = langid;
-
 }));
