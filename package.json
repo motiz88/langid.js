@@ -3,7 +3,7 @@
     "description" : "An off-the-shelf client-side language identification module for JavaScript.",
     "keywords" : ["language identification", "language detection"],
     "homepage" : "https://github.com/motiz88/langid.js",
-	"version" : "v0.1.0",
+	"version" : "v0.1.1",
     "author" : {
         "name" : "saffsd"
     },
@@ -16,6 +16,7 @@
         "type" : "git",
         "url" : "https://github.com/motiz88/langid.js.git"
     },
+	"dependencies" : ["atob"],
     "bugs" : "http://github.com/motiz88/langid.js/issues",
     "license" : "For license conditions, see the LICENSE file in the same repository."
 }

@@ -6,15 +6,15 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['exports', './langid-model-full'], factory);
+        define(['exports', 'atob', './langid-model-full'], factory);
     } else if (typeof exports === 'object') {
         // CommonJS
-        factory(exports, require('./langid-model-full'));
+        factory(exports, require('atob'), require('./langid-model-full'));
     } else {
         // Browser globals
-        factory((root.commonJsStrict = {}), {_tk_nextmove: root._tk_nextmove, _tk_output: root._tk_output, _nb_pc: root._nb_pc, _nb_ptc: root._nb_ptc, _nb_classes: root._nb_classes});
+        factory((root.commonJsStrict = {}), root.atob, {_tk_nextmove: root._tk_nextmove, _tk_output: root._tk_output, _nb_pc: root._nb_pc, _nb_ptc: root._nb_ptc, _nb_classes: root._nb_classes});
     }
-}(this, function (exports, langid_model) {
+}(this, function (exports, atob, langid_model) {
     //use b in some fashion.
 
     // attach properties to the exports object to define
