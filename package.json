@@ -3,6 +3,7 @@
     "description" : "An off-the-shelf client-side language identification module for JavaScript.",
     "keywords" : ["language identification", "language detection"],
     "homepage" : "https://github.com/motiz88/langid.js",
+	"version" : "v0.1.0",
     "author" : {
         "name" : "saffsd"
     },
